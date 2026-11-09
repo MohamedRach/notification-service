@@ -56,7 +56,7 @@ public class EmailChanelService {
                     .build());
         } catch (AlreadyExistsException e) {
             log.info("Configuration set {} already exists, reusing it", configSetName);
-        } catch (AwsServiceException | SdkException e) {
+        } catch (SdkException e) {
             throw new EmailChanelCreationException("Failed to create SES configuration set: " + configSetName, e);
         }
     }
